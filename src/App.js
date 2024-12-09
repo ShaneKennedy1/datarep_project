@@ -1,11 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavigationBar from './components/navigationbar.js';
+
 
 function App() {
   return (
-    <div>
-      <h1>Test</h1>
-    </div>
+    <Router>
+      <NavigationBar />
+      <Routes>
+    
+      </Routes>
+    
+    </Router>
   );
 }
 
