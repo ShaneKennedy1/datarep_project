@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-const Create = () => {
+const Creategame = () => {
 
     const [name, setName] = useState('');
     const [release, setRelease] = useState('');
@@ -21,37 +21,52 @@ const Create = () => {
 
     return (
         <div>
-            <h3>Hello from create component!</h3>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Add Game Name: </label>
                     <input type="text"
                         className="form-control"
-                        value={title}
-                        onChange={(e) => { setTitle(e.target.value) }}
+                        value={name}
+                        onChange={(e) => { setName(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
-                    <label>Add Movie Year: </label>
+                    <label>Add Release Year: </label>
                     <input type="text"
                         className="form-control"
-                        value={year}
-                        onChange={(e) => { setYear(e.target.value) }}
+                        value={release}
+                        onChange={(e) => { setRelease(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
-                    <label>Add Movie Poster: </label>
+                    <label>Add Game's Developer: </label>
                     <input type="text"
                         className="form-control"
-                        value={poster}
-                        onChange={(e) => { setPoster(e.target.value) }}
+                        value={developer}
+                        onChange={(e) => { setDeveloper(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Add Metacritic Score: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={score}
+                        onChange={(e) => { setScore(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Add Cover Art : </label>
+                    <input type="text"
+                        className="form-control"
+                        value={cover}
+                        onChange={(e) => { setCover(e.target.value) }}
                     />
                 </div>
                 <div>
-                    <input type="submit" value="Add Movie"></input>
+                    <input type="submit" value="Add Game"></input>
                 </div>
             </form>
         </div>
     );
 }
-export default Create;
+export default Creategame;
