@@ -59,11 +59,6 @@ app.delete('/api/game/:id', async (req, res) => {
   res.status(200).send({ message: "Game deleted successfully", game });
 });
 
-app.get('/api/game/:id', async (req, res) => {
-  const game = await gameModel.findById(req.params.id); 
-  res.send(game); 
-});
-
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`); 
 });

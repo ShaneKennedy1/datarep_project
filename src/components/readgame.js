@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
-
 import Games from "./games";
+
 function Readgame() {
     
     const [data, setData] = useState([]);
@@ -26,7 +25,7 @@ function Readgame() {
 
     return (
         <div>           
-            <h2>Game List</h2>
+            <h2>Game Database</h2>
             <Games myGames={data} ReloadData={Reload} />
         </div>
     );

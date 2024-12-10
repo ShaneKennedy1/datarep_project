@@ -10,9 +10,11 @@ function App() {
     <Router>
       <NavigationBar></NavigationBar>
       <Routes>
+        {/* Default route pointing to Readgame */}
+        <Route path="/" element={<Readgame />} />
         <Route path="/readgame" element={<Readgame />} />
         <Route path="/creategame" element={<Creategame />} />
-        <Route path="/editgame/:id" element={<Editgame />}/>
+        <Route path="/editgame/:id" element={<Editgame />} />
       </Routes>
     </Router>
   );
