@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";  // Import useNavigate
 
 const Creategame = () => {
   const [name, setName] = useState("");
@@ -8,6 +9,7 @@ const Creategame = () => {
   const [developer, setDeveloper] = useState("");
   const [score, setScore] = useState("");
   const [cover, setCover] = useState("");
+  const navigate = useNavigate();  // Hook to navigate programmatically
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,8 +19,12 @@ const Creategame = () => {
       .post("http://localhost:4000/api/games", game)
       .then((res) => {
         console.log(res.data);
+        // Navigate to Readgame after successful game creation
+        navigate("/readgame");
       })
-      .catch();
+      .catch((err) => {
+        console.error("Error creating game:", err);
+      });
   };
 
   return (
