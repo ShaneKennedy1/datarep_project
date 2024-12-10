@@ -27,7 +27,7 @@ export default function Edit(props) {
       
         setName(response.data.name);
         setRelease(response.data.release);
-        setcover(response.data.cover);
+        setCover(response.data.cover);
         setScore(response.data.score);
         setDeveloper(response.data.developer);
         
@@ -53,7 +53,7 @@ export default function Edit(props) {
      
         console.log(res.data);
        
-        navigate('/read');
+        navigate('/readgame');
       });
   }
 

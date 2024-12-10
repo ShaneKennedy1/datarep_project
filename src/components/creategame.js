@@ -13,7 +13,6 @@ const Creategame = () => {
         e.preventDefault();
         const game = {name,release,developer,score,cover};
         console.log(game);
-
         axios.post('http://localhost:4000/api/games',game)
         .then((res)=>{console.log(res.data)})
         .catch();

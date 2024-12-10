@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://g00393988:admin@yours.hfgz6.mongodb.net/');
-
+ 
 const gameSchema = new mongoose.Schema({
   name: String, 
   release: String,  

@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 const GameItem = (props) => {
 
 
@@ -25,14 +26,16 @@ const GameItem = (props) => {
   return (
     <div>
       <Card>
-        <Card.Header>{props.game.name}</Card.Header>
+        <Card.Header>{props.mygame.name}</Card.Header>
         <Card.Body>   
           <blockquote className="blockquote mb-0">
             <img src={props.mygame.cover} alt={props.mygame.name} /> 
-            <footer>{props.mygame.release}</footer>
+            <footer><b>Release Date: </b> {props.mygame.release}</footer>
+            <footer><b>Developer: </b> {props.mygame.developer}</footer>
+            <footer><b>Metacritic Score: </b> {props.mygame.score}</footer>
           </blockquote>
         </Card.Body>
-        <Link className="btn btn-primary" to={"/edit/" + props.mygame._id}>Update</Link>
+        <Link className="btn btn-primary" to={"/editgame/" + props.mygame._id}>Update</Link>
         <Button className="btn btn-danger" onClick={handleDelete}>Delete</Button>
       </Card>
     </div>
