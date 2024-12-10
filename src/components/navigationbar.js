@@ -3,17 +3,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 
-const navigationbar = () => {
+const NavigationBar = () => {
   return (
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
             <Navbar.Brand href="/">Navbar</Navbar.Brand>
             <Nav className="me-auto">
-            
+              <Nav.Link href="/creategame">Create</Nav.Link>
+              <Nav.Link href="/readgame">Read</Nav.Link>
             </Nav>
           </Container>
       </Navbar>
   );
 };
 
-export default navigationbar;
+export default NavigationBar;

@@ -8,13 +8,12 @@ import Editgame from './components/editgame';
 function App() {
   return (
     <Router>
-      <NavigationBar />
+      <NavigationBar></NavigationBar>
       <Routes>
         <Route path="/read" element={<Readgame />} />
         <Route path="/create" element={<Creategame />} />
         <Route path="/edit/:id" element={<Editgame />}/>
       </Routes>
-      <Footer />
     </Router>
   );
 }
