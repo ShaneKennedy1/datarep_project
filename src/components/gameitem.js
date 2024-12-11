@@ -26,8 +26,16 @@ const GameItem = (props) => {
     <div className="d-flex justify-content-center">
       <div className="col-md-6 col-lg-4 mb-4">
         <Card className="shadow-sm rounded">
-          <Card.Header className="bg-primary text-white text-center">
-            <h5>{props.mygame.name}</h5>
+          <Card.Header className="bg-dark text-white text-center">
+            <h5
+              style={{
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+                textShadow: "1px 1px 4px rgba(255, 255, 255, 0.2)",
+              }}
+            >
+              {props.mygame.name}
+            </h5>
           </Card.Header>
           <Card.Body>
             <div className="text-center mb-3">
@@ -56,16 +64,16 @@ const GameItem = (props) => {
             </blockquote>
           </Card.Body>
           <Card.Footer className="d-flex justify-content-between align-items-center">
-            <div>
+            <div className="w-50 me-2">
               <Link
-                className="btn btn-warning btn-sm"
+                className="btn btn-warning btn-sm w-100"
                 to={"/editgame/" + props.mygame._id}
               >
                 Update
               </Link>
             </div>
-            <div>
-              <Button className="btn btn-danger btn-sm" onClick={handleDelete}>
+            <div className="w-50 ms-2">
+              <Button className="btn btn-danger btn-sm w-100" onClick={handleDelete}>
                 Delete
               </Button>
             </div>

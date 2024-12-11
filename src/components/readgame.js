@@ -58,6 +58,7 @@ function Readgame() {
           + Add Game
         </button>
       </Link>
+    
 
       <Games myGames={filteredGames} ReloadData={Reload} />
     </div>
