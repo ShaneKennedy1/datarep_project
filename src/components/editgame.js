@@ -5,19 +5,24 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 export default function Edit(props) {
+  // Retrieve the game ID from the URL parameters
   let { id } = useParams();
 
+  // Initialize state variables for form inputs
   const [name, setName] = useState('');
   const [release, setRelease] = useState('');
   const [developer, setDeveloper] = useState('');
   const [score, setScore] = useState('');
   const [cover, setCover] = useState('');
 
+  // Initialize useNavigate hook for programmatic navigation
   const navigate = useNavigate();
 
+  // Fetch the existing game details when the component mounts or the game ID changes
   useEffect(() => {
     axios.get('http://localhost:4000/api/game/' + id)
       .then((response) => {
+        // Set state with the fetched game details
         setName(response.data.name);
         setRelease(response.data.release);
         setCover(response.data.cover);
@@ -29,10 +34,13 @@ export default function Edit(props) {
       });
   }, [id]);
 
+  // Handle form submission to update the game
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Create an updated game object
     const newGame = { id, name, release, cover, score, developer };
 
+    // Send a PUT request to update the game in the database
     axios.put('http://localhost:4000/api/game/' + id, newGame)
       .then((res) => {
         console.log(res.data);

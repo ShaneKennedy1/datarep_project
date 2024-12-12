@@ -1,25 +1,30 @@
 import axios from "axios";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom";  // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 const Creategame = () => {
+  // Set up state for form fields
   const [name, setName] = useState("");
   const [release, setRelease] = useState("");
   const [developer, setDeveloper] = useState("");
   const [score, setScore] = useState("");
   const [cover, setCover] = useState("");
-  const navigate = useNavigate();  // Hook to navigate programmatically
+  const navigate = useNavigate(); 
 
+  // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();  
+
+    // Create a game object with form data
     const game = { name, release, developer, score, cover };
     console.log(game);
+
+    // Send a POST request to add a new game to the database
     axios
       .post("http://localhost:4000/api/games", game)
       .then((res) => {
         console.log(res.data);
-        // Navigate to Readgame after successful game creation
         navigate("/readgame");
       })
       .catch((err) => {

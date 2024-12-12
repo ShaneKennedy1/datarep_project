@@ -1,30 +1,32 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom"; 
 import Games from "./games";
 
 function Readgame() {
+  // Initialize state variables for game data and search term
   const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); // State for search term
+  const [searchTerm, setSearchTerm] = useState(""); 
 
-  // Function to fetch game data
+  // Function to fetch game data from the API
   const Reload = () => {
     console.log("Reloading game data...");
     axios
       .get("http://localhost:4000/api/games")
       .then((response) => {
-        setData(response.data);
+        setData(response.data); 
       })
       .catch((error) => {
         console.error("Error reloading data:", error);
       });
   };
 
+  // UseEffect to fetch data when the component mounts
   useEffect(() => {
     Reload();
-  }, []);
+  }, []); 
 
-  // Filtered games based on the search term
+  // Filter the games based on the search term entered by the user
   const filteredGames = data.filter((game) =>
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -32,7 +34,7 @@ function Readgame() {
   return (
     <div className="text-center py-4">
       <h1 className="display-4 mb-4 text-primary">🎮 Game Database 🎮</h1>
-
+      {/* Search input field */}
       <div className="mb-4">
         <input
           type="text"
@@ -46,7 +48,7 @@ function Readgame() {
           }}
           placeholder="🔍 Search for a game..."
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => setSearchTerm(e.target.value)} 
         />
       </div>
 
@@ -58,8 +60,6 @@ function Readgame() {
           + Add Game
         </button>
       </Link>
-    
-
       <Games myGames={filteredGames} ReloadData={Reload} />
     </div>
   );
